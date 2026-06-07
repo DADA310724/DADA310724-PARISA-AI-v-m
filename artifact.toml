@@ -1,0 +1,38 @@
+kind = "web"
+previewPath = "/"
+title = "PARISA AI"
+version = "1.0.0"
+id = "artifacts/portal"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 25265
+
+[services.development]
+run = "pnpm --filter @workspace/portal run dev"
+
+[services.production]
+
+[services.production.build]
+args = ["pnpm", "install", "--filter", "@workspace/portal"]
+
+[services.production.run]
+args = ["node", "artifacts/portal/server.js"]
+
+[services.production.run.env]
+PORT = "25265"
+BASE_PATH = "/"
+NODE_ENV = "production"
+
+[services.production.health.startup]
+path = "/healthz"
+
+[services.env]
+PORT = "25265"
+BASE_PATH = "/"
