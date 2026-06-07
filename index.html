@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#02141a" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+<meta name="apple-mobile-web-app-title" content="PARISA" />
+<link rel="manifest" href="manifest.json" />
+<link rel="apple-touch-icon" href="logo.jpg" />
+<title>PARISA</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3/dist/purify.min.js"></script>
+</head>
+<body>
+
+<!-- Reusable SVG icons -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-menu" viewBox="0 0 24 24"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 11-2.83 2.83l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 11-4 0v-.09a1.65 1.65 0 00-1-1.51 1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 11-2.83-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 110-4h.09a1.65 1.65 0 001.51-1 1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 112.83-2.83l.06.06a1.65 1.65 0 001.82.33h0a1.65 1.65 0 001-1.51V3a2 2 0 114 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 112.83 2.83l-.06.06a1.65 1.65 0 00-.33 1.82v0a1.65 1.65 0 001.51 1H21a2 2 0 110 4h-.09a1.65 1.65 0 00-1.51 1z"/></symbol>
+    <symbol id="i-attach" viewBox="0 0 24 24"><path d="M21.44 11.05L12.25 20.24a6 6 0 01-8.49-8.49l9.19-9.19a4 4 0 015.66 5.66l-9.2 9.19a2 2 0 01-2.83-2.83l8.49-8.48"/></symbol>
+    <symbol id="i-camera" viewBox="0 0 24 24"><path d="M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z"/><circle cx="12" cy="13" r="4"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.13.96.37 1.9.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.91.33 1.85.57 2.81.7A2 2 0 0122 16.92z"/></symbol>
+    <symbol id="i-video" viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></symbol>
+    <symbol id="i-mic" viewBox="0 0 24 24"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/><path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></symbol>
+    <symbol id="i-send" viewBox="0 0 24 24"><path d="M5 12l14-7-7 14-2-5-5-2z"/></symbol>
+    <symbol id="i-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></symbol>
+    <symbol id="i-volume" viewBox="0 0 24 24"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 010 14.14M15.54 8.46a5 5 0 010 7.07"/></symbol>
+    <symbol id="i-flip" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 2l3 6 6 1-4.5 4.5 1 6L12 17l-5.5 2.5 1-6L3 9l6-1z"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 113 3L7 19l-4 1 1-4z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2"/></symbol>
+  </defs>
+</svg>
+
+<!-- Background ambient layers -->
+<div class="bg-aurora"></div>
+<div class="bg-grain"></div>
+
+<!-- App Shell -->
+<div class="app">
+  <!-- Sidebar -->
+  <aside id="sidebar" class="sidebar glass">
+    <div class="side-brand">
+      <div class="brand-title side-title">PARISA</div>
+    </div>
+    <div class="side-head">
+      <button class="ic-btn" id="closeSidebar" title="Close"><svg class="ic"><use href="#i-close"/></svg></button>
+      <button class="new-chat" id="newChatBtn"><svg class="ic"><use href="#i-plus"/></svg> নতুন চ্যাট</button>
+    </div>
+    <div class="side-section-title">পিন করা</div>
+    <div class="chat-list" id="pinnedList"></div>
+    <div class="side-section-title">সাম্প্রতিক</div>
+    <div class="chat-list" id="recentList"></div>
+    <div class="side-foot">
+      <button class="side-btn" id="openSettings"><svg class="ic"><use href="#i-gear"/></svg> সেটিংস</button>
+    </div>
+  </aside>
+  <div class="sidebar-scrim" id="sidebarScrim"></div>
+
+  <!-- Main -->
+  <main class="main">
+    <header class="topbar">
+      <button class="ic-btn" id="openSidebar" title="Menu"><svg class="ic"><use href="#i-menu"/></svg></button>
+      <div class="brand">
+        <div class="brand-title topbar-title">PARISA</div>
+      </div>
+      <div class="topbar-spacer"></div>
+    </header>
+
+    <!-- Chat area -->
+    <section class="chat-wrap">
+      <div id="welcome" class="welcome">
+        <div class="welcome-logo">
+          <div class="smoke s1"></div>
+          <div class="smoke s2"></div>
+          <div class="smoke s3"></div>
+          <div class="smoke s4"></div>
+          <img src="logo.jpg" alt="পারিসা" class="logo-img" />
+        </div>
+        <div class="welcome-tagline">
+          <span class="tagline-text">মায়া কখনোই কাটানো যায় না..</span>
+          <span class="tagline-text t2">এটা মৃত্যুর আগ পর্যন্ত থেকে যায়... 😘😘</span>
+        </div>
+        <h1 class="welcome-title">WELCOME</h1>
+        <p class="welcome-sub">আমি পারিসা — কী জানতে চান, লিখুন বা বলুন।</p>
+        <div class="suggestions">
+          <button class="sugg">পারিসা ও রুবেলের সম্পর্ক কবে থেকে শুরু হয়েছিল ?</button>
+          <button class="sugg">পারিসা ও রুবেল বিয়ে করেছিল কবে ?</button>
+          <button class="sugg">পারিসা ও রুবেলের মধ্যে দূরত্বের মূল কারণ কি ?</button>
+          <button class="sugg">আইন অনুযায়ী পারিসা ও রুবেলের বৈবাহিক সম্পর্কের ব্যাখ্যা কর।</button>
+        </div>
+      </div>
+
+      <div id="messages" class="messages"></div>
+    </section>
+
+    <!-- Input bar -->
+    <footer class="composer-wrap">
+      <div class="composer glass">
+        <div class="composer-tools">
+          <button class="ic-btn" id="attachBtn" title="ফাইল"><svg class="ic"><use href="#i-attach"/></svg></button>
+          <button class="ic-btn" id="cameraBtn" title="ক্যামেরা"><svg class="ic"><use href="#i-camera"/></svg></button>
+          <button class="ic-btn" id="audioCallBtn" title="অডিও কল"><svg class="ic"><use href="#i-phone"/></svg></button>
+          <button class="ic-btn" id="videoCallBtn" title="ভিডিও কল"><svg class="ic"><use href="#i-video"/></svg></button>
+        </div>
+        <div class="composer-input">
+          <textarea id="composerInput" rows="1" placeholder="কিছু লিখুন বা জিজ্ঞাসা করুন…"></textarea>
+          <button class="ic-btn mic" id="micBtn" title="ভয়েস ইনপুট"><svg class="ic"><use href="#i-mic"/></svg></button>
+          <button class="ic-btn send" id="sendBtn" title="পাঠান"><svg class="ic"><use href="#i-send"/></svg></button>
+        </div>
+      </div>
+      <div class="attached-bar" id="attachedBar"></div>
+      <input type="file" id="fileInput" hidden accept="image/*,application/pdf,audio/*,video/*,text/*" />
+    </footer>
+  </main>
+</div>
+
+<!-- Settings Modal -->
+<div class="modal-scrim" id="settingsScrim"></div>
+<div class="modal glass" id="settingsModal">
+  <div class="modal-head">
+    <div class="modal-title">সেটিংস</div>
+    <button class="ic-btn" id="closeSettings"><svg class="ic"><use href="#i-close"/></svg></button>
+  </div>
+  <div class="modal-body">
+    <div class="field">
+      <label>ভয়েস নির্বাচন করুন</label>
+      <div class="voice-choice">
+        <label class="voice-opt">
+          <input type="radio" name="voiceGender" id="voiceFemale" value="female" />
+          <span>🎙️ PARISA (Female)</span>
+        </label>
+        <label class="voice-opt">
+          <input type="radio" name="voiceGender" id="voiceMale" value="male" />
+          <span>🎙️ RUBEL (Male)</span>
+        </label>
+      </div>
+      <div style="margin-top:10px">
+        <button class="ghost" id="testVoice">ভয়েস টেস্ট করুন</button>
+      </div>
+    </div>
+    <div class="field">
+      <label>আপনার নাম (AI আপনাকে এই নামে ডাকবে)</label>
+      <input type="text" id="userName" placeholder="যেমন: দাদা" />
+    </div>
+  </div>
+  <div class="modal-foot">
+    <button class="ghost" id="resetSettings">রিসেট</button>
+    <button class="primary" id="saveSettings">সেভ</button>
+  </div>
+</div>
+
+<!-- Camera fullscreen -->
+<div class="fullscreen" id="cameraView" hidden>
+  <video id="camVideo" autoplay playsinline muted></video>
+  <canvas id="camCanvas" hidden></canvas>
+  <div class="cam-overlay">
+    <div class="cam-top">
+      <button class="ic-btn lg" id="closeCam"><svg class="ic"><use href="#i-close"/></svg></button>
+      <div class="cam-title">ক্যামেরা মোড</div>
+      <button class="ic-btn lg" id="flipCam"><svg class="ic"><use href="#i-flip"/></svg></button>
+    </div>
+    <div class="cam-caption" id="camCaption"></div>
+    <div class="cam-bottom">
+      <button class="ask-btn" id="askCamBtn">কী দেখছো?</button>
+      <button class="ic-btn lg" id="camMicBtn"><svg class="ic"><use href="#i-mic"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<!-- Audio call -->
+<div class="fullscreen call" id="audioCallView" hidden>
+  <div class="call-bg"></div>
+  <div class="call-orb">
+    <div class="orb-ring r1"></div>
+    <div class="orb-ring r2"></div>
+    <div class="orb-ring r3"></div>
+    <div class="orb-core"></div>
+  </div>
+  <div class="call-status" id="audioCallStatus">শুনছি…</div>
+  <div class="call-caption" id="audioCallCaption"></div>
+  <div class="call-controls">
+    <button class="call-btn end" id="endAudioCall">কল শেষ</button>
+    <button class="ic-btn lg" id="muteAudioCall"><svg class="ic"><use href="#i-mic"/></svg></button>
+  </div>
+</div>
+
+<!-- Video call -->
+<div class="fullscreen call" id="videoCallView" hidden>
+  <video id="videoCallVideo" autoplay playsinline muted></video>
+  <canvas id="videoCallCanvas" hidden></canvas>
+  <div class="call-overlay">
+    <div class="call-top">
+      <div class="call-title">ভিডিও কল • পারিসা</div>
+      <div class="call-status sm" id="videoCallStatus">কানেক্টেড</div>
+    </div>
+    <div class="call-caption" id="videoCallCaption"></div>
+    <div class="call-controls">
+      <button class="call-btn end" id="endVideoCall">কল শেষ</button>
+      <button class="ic-btn lg" id="muteVideoCall"><svg class="ic"><use href="#i-mic"/></svg></button>
+      <button class="ic-btn lg" id="flipVideoCall"><svg class="ic"><use href="#i-flip"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
